@@ -17,54 +17,136 @@ class App extends Component { //view
         <div className = "Card">
             <Card />
           </div>
+        <div className = "Large">
+          <Large />
+            </div>
           </div>
     );
   }
 }
 
 class WMap extends Component {
+   constructor() {
+    super();
+    
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
   render(){
     return(
-      <div className = "WMap"> 
-      <header className="App-header">
-      <h1 className="App-title">Welcome to D&D Make a Map!</h1>
+      <div className = "Map"> 
+      <header className="Spec-header">
+      <h1 className="Spec-title">World Map Specifications: </h1>
         </header>
+        <p className="Traits">
+        TEST
+        </p>
         </div>
     );
   }
 }
 
 class Large extends Component {
-  render(){
-    return(
-      <div className = "WMap"> 
-      <header className="Spec-header">
-      <h1 className="Spec-title">World Map Specifications:</h1>
-        </header>
-        </div>
+  constructor(i) {
+    super();
+    this.show = i;
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+  }
+  showMenu(event) {
+    event.preventDefault();
+    this.setState({ showMenu: true }
     );
+  }
+
+  render(){
+    if(i == true){
+    return(
+      <div>
+        <button onClick={this.showMenu} class = "dropdown-content">
+          Select a Biome:
+        </button>
+        {
+          this.state.showMenu
+            ? (
+              <div
+                className="menu"
+                ref={(element) => {
+                  this.dropdownMenu = element;
+                }}
+              >
+                <button class = "dropdown-content" onClick = {() => this.renderNewW()}>
+                   World </button>
+                <button class = "dropdown-content" onClick = {() => this.renderNewL()}> 
+                  Large: 40 x 40 </button>
+                <button class = "dropdown-content" onClick = {() => this.renderNewM()}>
+                  Medium: 30 x 30 </button>
+                <button class = "dropdown-content" onClick = {() => this.renderNewS()}>
+                  Small: 20 x 20 </button>
+              </div>
+            )
+            : (
+              null
+            )
+        }
+      </div>
+    );
+  }
   }
 }
 
 class Med extends Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
   render(){
     return(
-      <div className = "WMap"> 
-      <header className="Spec-header">
-      <h1 className="Spec-title">Map Specifications: </h1>
+      <div className = "Map"> 
+      <header className="App-header">
+      <h1 className="App-title">Map Specifications: </h1>
         </header>
+        <p className="App-intro">
+        TEST
+          </p>
         </div>
     );
   }
 }
 
 class Small extends Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      showMenu: false,
+    };
+    
+    this.showMenu = this.showMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+  }
   render(){
     return(
-      <div className = "WMap"> 
-      <header className="Spec-header">
-      <h1 className="Spec-title">Map Specifications: </h1>
+      <div className = "Map"> 
+      <header className="App-header">
+      <h1 className="App-title">Map Specifications: </h1>
         </header>
+        <p className="App-intro">
+          TEST
+          </p>
         </div>
     );
   }
@@ -80,6 +162,39 @@ class Card extends Component {
     
     this.showMenu = this.showMenu.bind(this);
     this.closeMenu = this.closeMenu.bind(this);
+  }
+
+  renderNewW(){
+    return(
+    <div className = "WMap">
+      <WMap />
+    </div>
+    );
+  }
+
+  
+  renderNewL(){
+    return(
+    <div className = "Large">
+      <Large />
+      </div>
+    );
+  } 
+
+  renderNewM(){
+    return(
+    <div className = "Med">
+      <Med />
+      </div>
+      );
+  }
+
+  renderNewS(){
+    return(
+    <div className = "Small">
+      <Small />
+      </div>
+      );
   }
   
   showMenu(event) {
@@ -100,23 +215,6 @@ class Card extends Component {
     }
   }
 
-  startOptionsW(){
-    <div className = "WMap">
-    </div>
-  }
-
-  startOptionsL(){
-    <Large />
-  }
-
-  startOptionsM(){
-   <Med />
-  }
-
-  startOptionsS(){
-    <Small />
-  }
-
   render() {
     return (
       <div>
@@ -133,13 +231,13 @@ class Card extends Component {
                   this.dropdownMenu = element;
                 }}
               >
-                <button class = "dropdown-content" onClick = {() => this.startOptionsW()}>
+                <button class = "dropdown-content" onClick = {() => this.renderNewW()}>
                    World </button>
-                <button class = "dropdown-content" onClick = {() => this.startOptionsL()}> 
+                <button class = "dropdown-content" onClick = {() => this.renderNewL()}> 
                   Large: 40 x 40 </button>
-                <button class = "dropdown-content" onClick = {() => this.startOptionsM()}>
+                <button class = "dropdown-content" onClick = {() => this.renderNewM()}>
                   Medium: 30 x 30 </button>
-                <button class = "dropdown-content" onClick = {() => this.startOptionsS()}>
+                <button class = "dropdown-content" onClick = {() => this.renderNewS()}>
                   Small: 20 x 20 </button>
               </div>
             )
