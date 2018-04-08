@@ -1065,7 +1065,6 @@ function CreateMSquare(){
 
 function createMGrid(){
   var i;
-
   var count = 0;
   var gridRow = [];
   var ngrid = [gridSize];
