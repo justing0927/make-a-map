@@ -28,12 +28,26 @@
   color: white;
   padding: 16px;
   font-size: 16px;
-  border: none;
+  border: white;
+  cursor: pointer;
+}
+
+.dropbtn2 {
+  background-color: #3498DB;
+  color: white;
+  margin-top: 50px;
+  padding: 16px;
+  font-size: 16px;
+  border: white;
   cursor: pointer;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropbtn2:hover, .dropbtn2:focus {
   background-color: #2980B9;
 }
 
@@ -49,12 +63,15 @@
   color: black;
   padding: 16px;
   font-size: 16px;
+  margin-top: 10px;
+  margin-right: 10px;
   border: solid, white;
   cursor: pointer;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
+  text-align: left;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -66,6 +83,84 @@
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+.Map{
+  text-align: left;
+}
+
+.Spec-button {
+  background-color: rgb(163, 169, 173);
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  border: solid, white;
+  cursor: pointer;
+}
+
+.Spec-title {
+  text-align: left;
+  padding: 10px;
+  display: none;
+  font-size: 1.25em;
+}
+
+.Big-title {
+  text-align: left;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 1.55em;
+}
+
+.Test-title {
+  text-align: left;
+  color: black;
+  padding: 10px;
+  display: inline;
+  position: center;
+  font-size: 1.25em;
+}
+
+.Traits{
+  font: verdana;
+  font-size: medium;
+  color: black;
+}
+
+.waterSquare{
+  height: 10px;
+  width: 10px;
+  background-color: rgb(50, 66, 209);
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  text-align: center;
+  width: 34px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

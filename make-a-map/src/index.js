@@ -51,23 +51,8 @@ class Square extends React.Component {
   
   // ========================================
 
-  /*
-  function newW(){
 
-  }*/
 
-  function newL(){
-    
-  }
-
-  function newM(){
-
-  }
-
-  function newS(){
-
-  }
-  
 
   //=====================================================================
 
