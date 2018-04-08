@@ -79,13 +79,13 @@ class App extends Component { //view
   }
 
   wTest(){
-    while(gener == false){
+    while(gener === false){
 
     }
   }
   
   gen1(){
-    if(document.getElementById("lndmss").value == "" || document.getElementById("waterfreq").value == ""){
+    if(document.getElementById("lndmss").value === "" || document.getElementById("waterfreq").value === ""){
       alert("Input must be filled out!")
     }
     else  
@@ -128,7 +128,7 @@ class App extends Component { //view
     render() {
       return (
         <div float = "left" display = "inline">
-          <button onClick={this.clicke()} class = "Spec-button" display = "inline" id = "bOne" visibility= "hidden">
+          <button id = "bOne" class = "Spec-button" display = "inline"  visibility= "hidden" onClick = {() => this.clicke()}>
             Desert
           </button>
           
@@ -217,7 +217,7 @@ class FBiome extends React.Component {
       render() {
         return (
           <div float = "left" display = "inline">
-            <button onClick={this.clicke()} class = "Spec-button" id = "bTwo" display = "inline" visibility= "hidden">
+            <button id = "bTwo" onClick={() =>  this.clicke()} class = "Spec-button"  display = "inline" visibility= "hidden">
               Forest
             </button>
             
@@ -303,7 +303,7 @@ class FBiome extends React.Component {
     render() {
       return (
         <div float = "left" display = "inline">
-          <button onClick={this.clicke()} class = "Spec-button" display = "inline" id = "bThree" visibility= "hidden">
+          <button id = "bThree" onClick={() => this.clicke()} class = "Spec-button" display = "inline"  visibility= "hidden">
             Plains
           </button>
           
@@ -393,7 +393,7 @@ class FBiome extends React.Component {
       render() {
         return (
           <div float = "left" display = "inline">
-            <button onClick={this.clicke()} class = "Spec-button" id = "bFour" display = "inline"  visibility= "hidden">
+            <button id = "bFour" onClick={() => this.clicke()} class = "Spec-button"  display = "inline"  visibility= "hidden">
               Mountain
             </button>
             
@@ -488,7 +488,7 @@ class FBiome extends React.Component {
   render() {
     return (
       <div float = "left" display = "inline">
-        <button onClick={this.clicke()} class = "Spec-button" id = "bFive" display = "inline" visibility= "hidden">
+        <button id = "bFive" onClick={() => this.clicke()} class = "Spec-button"  display = "inline" visibility= "hidden">
           Underground
         </button>
         
@@ -588,7 +588,7 @@ clicke(){ //this function is proof I am human garbage.
     render() {
       return (
         <div float = "left" display = "inline">
-          <button onClick={this.clicke()} class = "Spec-button" id = "bSix" display = "inline" visibility= "hidden">
+          <button id = "bSix" onClick={() => this.clicke()} class = "Spec-button"  display = "inline" visibility= "hidden">
             Underwater
           </button>
           
@@ -737,7 +737,7 @@ class Grid extends React.Component {
     if(this.gridSize == null){
       alert("Error: Grid size not selected.");
     }
-    else if(this.mapType == "WMap")
+    else if(this.mapType === "WMap")
       this.render();
     else if(this.biome == null){
       alert("Error: Biome type not selected.");
@@ -820,22 +820,22 @@ biomeControly(){
 
 
 function biomeStart(){
-  if(biome == "Des"){
+  if(biome === "Des"){
 
   }
-  else if(biome == "For"){
+  else if(biome === "For"){
 
   }
-  else if(biome == "Pla"){
+  else if(biome === "Pla"){
 
   }
-  else if(biome == "Mou"){
+  else if(biome === "Mou"){
 
   }
-  else if(biome == "Gro"){
+  else if(biome === "Gro"){
 
   }
-  else if(biome == "Wat"){
+  else if(biome === "Wat"){
 
   }
   else
@@ -848,6 +848,7 @@ function bi1(){
   document.getElementById("bFour").style.visibility = "hidden"
   document.getElementById("bFive").style.visibility = "hidden"
   document.getElementById("bSix").style.visibility = "hidden"
+  
 }
 
 function bi2(){
@@ -856,6 +857,7 @@ function bi2(){
   document.getElementById("bFour").style.visibility = "hidden"
   document.getElementById("bFive").style.visibility = "hidden"
   document.getElementById("bSix").style.visibility = "hidden"
+  
 }
 
 function bi3(){

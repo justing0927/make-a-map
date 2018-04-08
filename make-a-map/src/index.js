@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import WMap from './App';
-import Large from './App';
-import Med from './App';
-import Small from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 class Square extends React.Component {
