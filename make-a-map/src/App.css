@@ -166,3 +166,268 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* Different Types of "Squares" for grid: */
+
+/* Desert Squares */
+
+.Dsquare {
+  background: rgb(218, 195, 122);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.QSDsquare {
+  background: rgb(218, 180, 122);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.DRDsquare {
+  background: rgb(116, 114, 111);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+  border-radius: 40%;
+}
+
+
+
+/* Forest Squares */
+
+.Fsquare {
+  background: rgb(14, 116, 31);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.TFsquare {
+  background: rgb(104, 63, 10);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+  border-radius: 50%;
+}
+
+
+/* Plains Squares */
+
+.Psquare {
+  background: rgb(92, 170, 89);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.BPsquare {
+  background: rgb(51, 97, 50);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+  border-radius: 40%;
+}
+
+.RPsquare {
+  background: rgb(102, 107, 101);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+  border-radius: 40%;
+}
+
+
+/* Mountain Squares */
+
+.Msquare {
+  background: rgb(95, 89, 33);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.MDsquare {
+  background: black;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.MRsquare {
+  background: rgb(80, 80, 78);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+  border-radius: 43%;
+}
+
+
+/* Underground Squares */
+
+.Gsquare {
+  background: rgb(124, 124, 124);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.GDsquare {
+  background: black;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.GRsquare {
+  background: rgb(88, 88, 88);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+  border-radius: 43%;
+}
+
+
+/* Underwater Squares */
+
+.Wsquare {
+  background: rgb(67, 95, 189);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}
+
+.CWsquare {
+  background: rgb(221, 102, 102);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+  border-radius: 12%;
+}
+
+.WRsquare {
+  background: rgb(192, 181, 159);
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 0;
+  width: 34px;
+}

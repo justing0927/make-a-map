@@ -4,11 +4,13 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
+
+/*
 class Square extends React.Component {
     render() {
       return (
         <button className="square">
-          {/* TODO */}
+          {}
         </button>
       );
     }
@@ -44,6 +46,7 @@ class Square extends React.Component {
       );
     }
   }
+  */
   
   // ========================================
 
@@ -51,7 +54,7 @@ class Square extends React.Component {
 
 
   //=====================================================================
-
+/*
 function myFunction(){
     document.getElementById("myDropdown").classList.toggle("show");
   }
@@ -69,6 +72,7 @@ function myFunction(){
       }
     }
   }
+  */
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
