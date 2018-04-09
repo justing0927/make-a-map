@@ -826,8 +826,11 @@ class Card extends Component {
                   this.dropdownMenu = element;
                 }}
               >
-                <button className = "dropdown-content" onClick = {() => wmapSpecs()}>
+                {/*
+                  <button className = "dropdown-content" onClick = {() => wmapSpecs()}>
                    World </button>
+                */}
+
                 <button className = "dropdown-content" onClick = {() => this.eventL()}> 
                   Large: 30 x 30 </button>
                 <button className = "dropdown-content" onClick = {() => this.eventM()}>
@@ -884,7 +887,7 @@ class Grid extends React.Component {
 
 
 function getTempEl(){
-  return Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+  return Math.random() * (100 - 0 + 1) + 0;
 }
 
 function createMSquare(props){
@@ -1105,20 +1108,74 @@ function createMGrid(){
   }
   tab.appendChild(row);
   }
-
-  return tab;
+  
+  if(lake === true){
+    makeLake();
+  }
+  
 
 }
 
 
-function createWGrid(){
+function makeLake(){
+  var lakeRow = Math.round(Math.random() * (gridSize - 0 + 1));
+  var lakeCol = Math.round(Math.random() * (gridSize - 0 + 1));
 
+  if(lakeCol <= 4){
+    lakeCol = 5;
+  }
+  else if(lakeRow <= 4){
+    lakeRow = 5;
+  }
+
+  console.log(lakeRow);
+  console.log(lakeCol);
+  console.log(document.getElementById("GridTable"))
+  console.log(document.getElementById("GridTable").rows[lakeRow])
+  console.log(document.getElementById("GridTable").rows[lakeRow].cells[lakeCol])
+
+
+
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
+  
+}
+
+
+function createWGrid(){
+  //TODO
 }
 
 /*==============S=P=A=G=H=E=T=T=I===C=O=D=E===A=L=E=R=T================================
 
   
 
+  var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "WSquare");
+
+      var cell = document.createElement("td");
+      cell.appendChild("td")
+
+  var lakeCenter = document.getElementById("GridTable").rows[lakeRow].cells[lakeCol];
+
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol].deleteCell();
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol].insertCell(cell);
+  
 
 biomeControly(){
     return(
