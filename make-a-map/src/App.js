@@ -15,13 +15,17 @@ var parts = [mapType, gridSize, biome, path, river, lake];
 
 
 /*
-  Things to add in future.
+  Things to add in future:
+
+  Handle Click function to allow numbering certain tiles.
+
+  Random bends in rivers and paths
 
   World Map function.
     - Also add possible city locations and names
     - Make biomes make sense.
 
-  Variance in size for random things.
+  Variance in size for obstacles and land elements.
 
   Addition map biomes (Tundra, Planar, urban, etc.)
 
@@ -890,7 +894,7 @@ function getTempEl(){
   return Math.random() * (100 - 0 + 1) + 0;
 }
 
-function createMSquare(props){
+function createMSquare(){
   if(biome === "Des"){
     var qSandChance = (5 * parts[6] )
     var dRocksChance = (5 * parts[7])
@@ -1103,7 +1107,8 @@ function createMGrid(){
     for(j = 0; j < gridSize; j++){
 
     var cell = document.createElement("td");
-    row.appendChild(createMSquare(cell));
+    cell.appendChild(createMSquare())
+    row.appendChild(cell);
 
   }
   tab.appendChild(row);
@@ -1112,46 +1117,123 @@ function createMGrid(){
   if(lake === true){
     makeLake();
   }
-  
+  if(river === true){
+    makeRiver();
+  }
+  if(path === true){
+    makePath();
+  }
 
 }
+
+function makeRiver(){
+var rivStart = Math.round(Math.random() * (gridSize - 0 + 1));
+var horizontalChance = Math.round(Math.random() * (100 - 0 + 1));
+var i;
+
+if(rivStart >= (gridSize - 1)){
+  rivStart = gridSize - 2;
+}
+
+if(horizontalChance < 50) //vertical river
+
+for(i = 0; i < gridSize; i++){
+  document.getElementById("GridTable").rows[i].cells[rivStart].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[i].cells[rivStart + 1].children[0].style.background = "rgb(67, 95, 189)";
+  }
+
+else{ //horizontal river
+  for(i = 0; i < gridSize; i++){
+    document.getElementById("GridTable").rows[rivStart].cells[i].children[0].style.background = "rgb(67, 95, 189)";
+    document.getElementById("GridTable").rows[rivStart + 1].cells[i].children[0].style.background = "rgb(67, 95, 189)";
+    }
+}
+}
+
+
+function makePath(){
+  var rivStart = Math.round(Math.random() * (gridSize - 0 + 1));
+  var horizontalChance = Math.round(Math.random() * (100 - 0 + 1));
+  var i;
+  
+  if(rivStart >= (gridSize - 1)){
+    rivStart = gridSize - 2;
+  }
+  
+  if(horizontalChance < 50) //vertical river
+  
+  for(i = 0; i < gridSize; i++){
+    document.getElementById("GridTable").rows[i].cells[rivStart].children[0].style.background = "rgb(245, 230, 65)";
+    document.getElementById("GridTable").rows[i].cells[rivStart + 1].children[0].style.background = "rgb(245, 230, 65)";
+    }
+  
+  else{ //horizontal river
+    for(i = 0; i < gridSize; i++){
+      document.getElementById("GridTable").rows[rivStart].cells[i].children[0].style.background = "rgb(245, 230, 65)";
+      document.getElementById("GridTable").rows[rivStart + 1].cells[i].children[0].style.background = "rgb(245, 230, 65)";
+      }
+  }
+  }
 
 
 function makeLake(){
   var lakeRow = Math.round(Math.random() * (gridSize - 0 + 1));
   var lakeCol = Math.round(Math.random() * (gridSize - 0 + 1));
 
-  if(lakeCol <= 4){
-    lakeCol = 5;
+  console.log(gridSize)
+  console.log(lakeRow);
+  console.log(lakeCol);
+
+
+  if(lakeCol <= 2){
+    lakeCol = 3;
   }
-  else if(lakeRow <= 4){
-    lakeRow = 5;
+  if(lakeRow <= 2){
+    lakeRow = 3;
   }
 
+  if(lakeRow >= gridSize - 3){
+    lakeRow = (gridSize - 5);
+  }
+  if(lakeCol >= gridSize - 3){
+    lakeCol = (gridSize - 5);
+  }
+
+  console.log(gridSize)
   console.log(lakeRow);
   console.log(lakeCol);
   console.log(document.getElementById("GridTable"))
   console.log(document.getElementById("GridTable").rows[lakeRow])
   console.log(document.getElementById("GridTable").rows[lakeRow].cells[lakeCol])
+  console.log(document.getElementById("GridTable").rows[lakeRow].cells[lakeCol].children[0])
+  console.log(document.getElementById("GridTable").rows[lakeRow].cells[lakeCol].children[0].style.background)
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol+1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol-1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol+1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol-1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol-1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol+1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol-1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol+1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol+2].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol+2].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol+2].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol+2].children[0].style.background = "rgb(67, 95, 189)";
 
+  document.getElementById("GridTable").rows[lakeRow+3].cells[lakeCol-1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+3].cells[lakeCol].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+3].cells[lakeCol+1].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+3].cells[lakeCol+2].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow+3].cells[lakeCol+3].children[0].style.background = "rgb(67, 95, 189)";
 
-
-  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol-1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol+1].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow+1].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
-  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol+2].firstChild.innerHTML = "WSquare";
+  document.getElementById("GridTable").rows[lakeRow+2].cells[lakeCol+3].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow-1].cells[lakeCol+3].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow].cells[lakeCol+3].children[0].style.background = "rgb(67, 95, 189)";
+  document.getElementById("GridTable").rows[lakeRow + 1].cells[lakeCol+3].children[0].style.background = "rgb(67, 95, 189)";
   
 }
 
