@@ -431,3 +431,14 @@
   padding: 0;
   width: 34px;
 }
+
+.GridTabl {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  position: center;
+  border: 0px;
+  border-spacing: 0px;
+  border-collapse: collapse;
+
+}

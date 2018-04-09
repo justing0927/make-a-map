@@ -8,7 +8,7 @@ var biome = null;
 var path = null;
 var river = null;
 var lake = null;
-var grid = [""];
+var tbl;
 
 var parts = [mapType, gridSize, biome, path, river, lake];
 
@@ -51,6 +51,7 @@ class App extends Component { //view
         <p className="App-intro">
           To get started, click <code>"Select a Map Type"</code> and choose other specifications.
         </p>
+
         <div className = "Card">
             <Card />
         </div>
@@ -88,11 +89,12 @@ class App extends Component { //view
             <button id = "genButton" display = "none" className = "dropbtn2" onClick = {() => this.gen1()}> 
               Generate! </button>
           </div>
+          
         </div>
 
         <div className = "Card">
-          <Grid />
-        </div>
+            <Grid />
+          </div>
 
       </div>
     );
@@ -105,6 +107,7 @@ class App extends Component { //view
     else  
       parts.push(document.getElementById("lndmss").value)
       parts.push(document.getElementById("waterfreq").value)
+      
     }
 
 //Creates an array for Large/Medium/Small grid creation based on user input. Ensures input is entered.
@@ -113,58 +116,89 @@ class App extends Component { //view
       if(document.getElementById("qsand").value === "" || document.getElementById("drocks").value === "" ){
         
         alert("Input must be filled out!")
+        resetOptions();
       }
+      else{
+
 
       parts.push(document.getElementById("qsand").value) // parts[6]
       parts.push(document.getElementById("drocks").value) //7
       //parts.push(document.getElementById("dsize").value) 
+
+      tbl = createMGrid();
+      }
     }
     else if(biome === "For"){
       if(document.getElementById("trees").value === ""){
         
         alert("Input must be filled out!")
+        resetOptions();
       }
+      else{
       parts.push(document.getElementById("trees").value) //parts[6]
+
+      tbl = createMGrid();
+      }
     }
     else if(biome === "Pla"){
       if(document.getElementById("brush").value === "" || document.getElementById("procks").value === "") {
         
         alert("Input must be filled out!")
+        resetOptions();
       }
+      else{
       parts.push(document.getElementById("brush").value) //parts[6]
       parts.push(document.getElementById("procks").value) //parts 7
+
+      tbl = createMGrid();
+      }
     }
     else if(biome === "Mou"){
       if(document.getElementById("mdrops").value === "" || document.getElementById("mrocks").value === ""){
         
         alert("Input must be filled out!")
+        resetOptions();
       }
+      else{
       parts.push(document.getElementById("mdrops").value) //parts[6]
       parts.push(document.getElementById("mrocks").value) //parts 7
       //parts.push(document.getElementById("msize").value) //parts 8
+
+      tbl = createMGrid();
+      }
     }
     else if(biome === "Gro"){
       if(document.getElementById("gdrops").value === "" || document.getElementById("grocks").value === "" ){
         
         alert("Input must be filled out!")
+        resetOptions();
       }
+      else{
       
       parts.push(document.getElementById("gdrops").value) //parts[6]
       parts.push(document.getElementById("grocks").value) //parts 7
       //parts.push(document.getElementById("gsize").value) //parts 8
+
+      tbl = createMGrid();
+      }
     }
     else if(biome === "Wat"){
       if(document.getElementById("coral").value === "" || document.getElementById("wrocks").value === "" ){
         
         alert("Input must be filled out!")
+        resetOptions();
       }
+      else{
       
       parts.push(document.getElementById("coral").value) //parts[6]
       parts.push(document.getElementById("wrocks").value) //parts 7
      // parts.push(document.getElementById("wsize").value) //parts 8
+
+     tbl = createMGrid();
+      }
     }
 
-    grid = createMGrid();
+    
 
     /*
     else{
@@ -838,61 +872,15 @@ class Grid extends React.Component {
   render(){
     return(
       <div>
-        <div className = "Spec-title" display = "block">
-          Grid:
+        <div className = "Spec-title"  display = "block">
+          Map:
           </div>
-          {this.displayGrid}          
+          <table id = "GridTable" className = "GridTabl">
+            </table>         
         </div>
     );
   }
 
-  displayGrid(){
-      return(
-        <div>
-         <div className="board-row">
-            {grid[0][0]}
-            {grid[0][1]}
-            {grid[0][2]}
-            {grid[0][3]}
-            {grid[0][4]}
-            {grid[0][5]}
-            {grid[0][6]}
-            {grid[0][7]}
-            {grid[0][8]}
-            {grid[0][9]}
-            {grid[0][10]}
-         </div>
-         <div className="board-row">
-           {grid[1]}
-          </div>
-          <div className="board-row">
-            {grid[2]}
-          </div>
-         <div className="board-row">
-           {grid[3]}
-         </div>
-          <div className="board-row">
-            {grid[4]}
-         </div>
-          <div className="board-row">
-            {grid[5]}
-          </div>
-          <div className="board-row">
-           {grid[6]}
-          </div>
-          <div className="board-row">
-            {grid[7]}
-          </div>
-         <div className="board-row">
-           {grid[8]}
-          </div>
-         <div className="board-row">
-           {grid[9]}
-         </div>
-        </div> 
-      );
-    }
-  
 }
 
 
@@ -900,7 +888,7 @@ function getTempEl(){
   return Math.floor(Math.random() * (100 - 0 + 1)) + 0;
 }
 
-function CreateMSquare(){
+function createMSquare(props){
   if(biome === "Des"){
     var qSandChance = (5 * parts[6] )
     var dRocksChance = (5 * parts[7])
@@ -912,22 +900,22 @@ function CreateMSquare(){
     var tempEl2 = getTempEl();
 
     if(tempEl <= qsCNum){
-      return(
-      <button className="QSDsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "QSDSquare");
+      props.appendChild(btn);
     }
     else if(tempEl2 <= drCNum){
-      return(
-      <button className="DRDsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "DRDSquare");
+      props.appendChild(btn);
     }
     else
-    return(    
-      <button className="Dsquare">
-      </button>
-    );
+    var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.className = "DSquare";
+      props.appendChild(btn);
   }
   else if(biome === "For"){
     var treeChance = (5 * parts[6])
@@ -937,15 +925,15 @@ function CreateMSquare(){
     var tempEl3 = getTempEl();
 
     if(tempEl3 <= tCNum){
-      return(
-      <button className="TFsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "TFSquare");
+      props.appendChild(btn);
     }
-    return(
-      <button className="Fsquare">
-      </button>
-    );
+    var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("classe", "FSquare");
+      props.appendChild(btn);
   }
   else if(biome === "Pla"){
     var brushChance = (5 * parts[6])
@@ -958,22 +946,22 @@ function CreateMSquare(){
     var tempEl5 = getTempEl();
 
   if(tempEl4 <= bCNum){
-      return(
-      <button className="BPsquare">
-      </button>
-      );
+    var btn = document.createElement('INPUT');
+    btn.setAttribute("type", "button");
+    btn.setAttribute("class", "BPSquare");
+    props.appendChild(btn);
     }
     else if(tempEl5 <= prCNum){
-      return(
-      <button className="RPsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "RPSquare");
+      props.appendChild(btn);
     }
     else
-    return(
-      <button className="Psquare">
-      </button>
-    );
+    var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "PSquare");
+      props.appendChild(btn);
   }
   else if(biome === "Mou"){
     var mDropsChance = (5 * parts[6])
@@ -986,22 +974,22 @@ function CreateMSquare(){
     var tempEl7 = getTempEl();
 
     if(tempEl6 <= mdCNum){
-      return(
-      <button className="MDsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "MDSquare");
+      props.appendChild(btn);
     }
     else if(tempEl7 <= mrCNum){
-      return(
-      <button className="MRsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("className", "MRSquare");
+      props.appendChild(btn);
     }
     else
-    return(
-      <button className="Msquare">
-      </button>
-    );
+    var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "MSquare");
+      props.appendChild(btn);
   }
   else if(biome === "Gro"){
     var gDropsChance = (5 * parts[6])
@@ -1014,22 +1002,22 @@ function CreateMSquare(){
     var tempEl9 = getTempEl();
 
     if(tempEl8 <= gdCNum){
-      return(
-      <button className="GDsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "GDSquare");
+      props.appendChild(btn);
     }
     else if(tempEl9 <= grCNum){
-      return(
-      <button className="GRsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "GRSquare");
+      props.appendChild(btn);
     }
     else
-    return(
-      <button className="Gsquare">
-      </button>
-    );
+    var btn = document.createElement('INPUT');
+    btn.setAttribute("type", "button");
+    btn.setAttribute("class", "DSquare");
+      props.appendChild(btn);
   }
   else if(biome === "Wat"){
     var coralChance = (5 * parts[6])
@@ -1042,22 +1030,22 @@ function CreateMSquare(){
     var tempEl11 = getTempEl();
 
     if(tempEl10 <= cCNum){
-      return(
-      <button className="CWsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "CWSquare");
+      props.appendChild(btn);
     }
     else if(tempEl11 <= wrCNum){
-      return(
-      <button className="WRsquare">
-      </button>
-      );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "WRSquare");
+      props.appendChild(btn);
     }
     else
-    return(
-      <button className="Wsquare">
-      </button>
-    );
+      var btn = document.createElement('INPUT');
+      btn.setAttribute("type", "button");
+      btn.setAttribute("class", "WSquare");
+      props.appendChild(btn);
   }
 }
 
@@ -1065,19 +1053,29 @@ function CreateMSquare(){
 
 function createMGrid(){
   var i;
-  var count = 0;
-  var gridRow = [];
-  var ngrid = [gridSize];
+  var j;
 
-  for(i = 0; i < (gridSize * gridSize); i++){
-    if(count === gridSize){
-      ngrid.push(gridRow);
-      gridRow = []
-    }
-    gridRow.push(<CreateMSquare />);
-    count++
+  var ngrid = [];
+
+  var tab = document.getElementById("GridTable");
+
+  for(i = 0; i < (gridSize); i++){
+
+    var row = document.createElement("tr");
+
+    for(j = 0; j < gridSize; j++){
+
+    var cell = document.createElement("td");
+    createMSquare(cell);
+
+    row.appendChild(cell);
+
   }
-  return ngrid;
+  tab.appendChild(row);
+  }
+
+  return tab;
+
 }
 
 
@@ -1086,6 +1084,8 @@ function createWGrid(){
 }
 
 /*==============S=P=A=G=H=E=T=T=I===C=O=D=E===A=L=E=R=T================================
+
+  
 
 
 biomeControly(){
@@ -1175,7 +1175,11 @@ function Square(props) {
 */
 //=====================================================================================
 
-
+function getTbl(){
+  return(
+    tbl
+  );
+}
 
 function bi1(){
   document.getElementById("bTwo").style.display = "none"
