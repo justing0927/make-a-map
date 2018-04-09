@@ -171,7 +171,7 @@
 
 /* Desert Squares */
 
-.Dsquare {
+.DSquare {
   background: rgb(218, 195, 122);
   border: 1px solid #999;
   float: left;
@@ -185,7 +185,7 @@
   width: 34px;
 }
 
-.QSDsquare {
+.QSDSquare {
   background: rgb(218, 180, 122);
   border: 1px solid #999;
   float: left;
@@ -199,7 +199,7 @@
   width: 34px;
 }
 
-.DRDsquare {
+.DRDSquare {
   background: rgb(116, 114, 111);
   border: 1px solid #999;
   float: left;
@@ -218,7 +218,7 @@
 
 /* Forest Squares */
 
-.Fsquare {
+.FSquare {
   background: rgb(14, 116, 31);
   border: 1px solid #999;
   float: left;
@@ -232,7 +232,7 @@
   width: 34px;
 }
 
-.TFsquare {
+.TFSquare {
   background: rgb(104, 63, 10);
   border: 1px solid #999;
   float: left;
@@ -250,7 +250,7 @@
 
 /* Plains Squares */
 
-.Psquare {
+.PSquare {
   background: rgb(92, 170, 89);
   border: 1px solid #999;
   float: left;
@@ -264,7 +264,7 @@
   width: 34px;
 }
 
-.BPsquare {
+.BPSquare {
   background: rgb(51, 97, 50);
   border: 1px solid #999;
   float: left;
@@ -279,7 +279,7 @@
   border-radius: 40%;
 }
 
-.RPsquare {
+.RPSquare {
   background: rgb(102, 107, 101);
   border: 1px solid #999;
   float: left;
@@ -297,7 +297,7 @@
 
 /* Mountain Squares */
 
-.Msquare {
+.MSquare {
   background: rgb(95, 89, 33);
   border: 1px solid #999;
   float: left;
@@ -311,7 +311,7 @@
   width: 34px;
 }
 
-.MDsquare {
+.MDSquare {
   background: black;
   border: 1px solid #999;
   float: left;
@@ -325,7 +325,7 @@
   width: 34px;
 }
 
-.MRsquare {
+.MRSquare {
   background: rgb(80, 80, 78);
   border: 1px solid #999;
   float: left;
@@ -343,7 +343,7 @@
 
 /* Underground Squares */
 
-.Gsquare {
+.GSquare {
   background: rgb(124, 124, 124);
   border: 1px solid #999;
   float: left;
@@ -357,7 +357,7 @@
   width: 34px;
 }
 
-.GDsquare {
+.GDSquare {
   background: black;
   border: 1px solid #999;
   float: left;
@@ -371,7 +371,7 @@
   width: 34px;
 }
 
-.GRsquare {
+.GRSquare {
   background: rgb(88, 88, 88);
   border: 1px solid #999;
   float: left;
@@ -389,7 +389,7 @@
 
 /* Underwater Squares */
 
-.Wsquare {
+.WSquare {
   background: rgb(67, 95, 189);
   border: 1px solid #999;
   float: left;
@@ -403,7 +403,7 @@
   width: 34px;
 }
 
-.CWsquare {
+.CWSquare {
   background: rgb(221, 102, 102);
   border: 1px solid #999;
   float: left;
@@ -418,7 +418,7 @@
   border-radius: 12%;
 }
 
-.WRsquare {
+.WRSquare {
   background: rgb(192, 181, 159);
   border: 1px solid #999;
   float: left;
@@ -440,5 +440,5 @@
   border: 0px;
   border-spacing: 0px;
   border-collapse: collapse;
-
+  margin-bottom: 30px;
 }

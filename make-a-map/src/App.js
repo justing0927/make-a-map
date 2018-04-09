@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
 
 var gridSize = null;
 var mapType = null;
@@ -265,7 +264,7 @@ class App extends Component { //view
     render() {
       return (
         <div float = "left" display = "inline">
-          <button id = "bOne" class = "Spec-button" display = "none" onClick = {this.showMenu}>
+          <button id = "bOne" className = "Spec-button" display = "none" onClick = {this.showMenu}>
             Desert
           </button>
           
@@ -302,7 +301,7 @@ class App extends Component { //view
                 <div className = "Big-title" >
                     Land Elements: 
                   </div>
-                <button class = "dropdown-content" onClick = {() => this.togLake()}> 
+                <button className = "dropdown-content" onClick = {() => this.togLake()}> 
                      Toggle Oasis
                   </button>
               </div>
@@ -354,7 +353,7 @@ class FBiome extends React.Component {
       render() {
         return (
           <div float = "left" display = "inline">
-            <button id = "bTwo" onClick={this.showMenu} class = "Spec-button"  display = "none">
+            <button id = "bTwo" onClick={this.showMenu} className = "Spec-button"  display = "none">
               Forest
             </button>
             
@@ -380,10 +379,10 @@ class FBiome extends React.Component {
                   <div className = "Big-title" >
                       Land Elements: 
                     </div>
-                  <button class = "dropdown-content" onClick = {() => this.togPath()}>
+                  <button className = "dropdown-content" onClick = {() => this.togPath()}>
                        Toggle Path 
                     </button>
-                  <button class = "dropdown-content" onClick = {() => this.togRiv()}> 
+                  <button className = "dropdown-content" onClick = {() => this.togRiv()}> 
                        Toggle River 
                     </button>
                 </div>
@@ -438,7 +437,7 @@ class FBiome extends React.Component {
     render() {
       return (
         <div float = "left" display = "inline">
-          <button id = "bThree" onClick={this.showMenu} class = "Spec-button" display = "none">
+          <button id = "bThree" onClick={this.showMenu} className = "Spec-button" display = "none">
             Plains
           </button>
           
@@ -468,10 +467,10 @@ class FBiome extends React.Component {
                 <div className = "Big-title" >
                     Land Elements: 
                   </div>
-                <button class = "dropdown-content" onClick = {() => this.togPath()}>
+                <button className = "dropdown-content" onClick = {() => this.togPath()}>
                      Toggle Path 
                   </button>
-                <button class = "dropdown-content" onClick = {() => this.togRiv()}> 
+                <button className = "dropdown-content" onClick = {() => this.togRiv()}> 
                      Toggle River 
                   </button>
               </div>
@@ -526,7 +525,7 @@ class FBiome extends React.Component {
       render() {
         return (
           <div float = "left" display = "inline">
-            <button id = "bFour" onClick={this.showMenu} class = "Spec-button"  display = "none">
+            <button id = "bFour" onClick={this.showMenu} className = "Spec-button"  display = "none">
               Mountain
             </button>
             
@@ -562,10 +561,10 @@ class FBiome extends React.Component {
                   <div className = "Big-title" >
                       Land Elements: 
                     </div>
-                  <button class = "dropdown-content" onClick = {() => this.togPath()}>
+                  <button className = "dropdown-content" onClick = {() => this.togPath()}>
                        Toggle Path 
                     </button>
-                  <button class = "dropdown-content" onClick = {() => this.togRiv()}> 
+                  <button className = "dropdown-content" onClick = {() => this.togRiv()}> 
                        Toggle Waterfall
                     </button>
                 </div>
@@ -621,7 +620,7 @@ class FBiome extends React.Component {
   render() {
     return (
       <div float = "left" display = "inline">
-        <button id = "bFive" onClick={this.showMenu} class = "Spec-button"  display = "none">
+        <button id = "bFive" onClick={this.showMenu} className = "Spec-button"  display = "none">
           Underground
         </button>
         
@@ -657,13 +656,13 @@ class FBiome extends React.Component {
               <div className = "Big-title" >
                   Land Elements: 
                 </div>
-              <button class = "dropdown-content" onClick = {() => this.togPath()}>
+              <button className = "dropdown-content" onClick = {() => this.togPath()}>
                    Toggle Path 
                 </button>
-              <button class = "dropdown-content" onClick = {() => this.togRiv()}> 
+              <button className = "dropdown-content" onClick = {() => this.togRiv()}> 
                    Toggle Underground River 
                 </button>
-              <button class = "dropdown-content" onClick = {() => this.togLake()}> 
+              <button className = "dropdown-content" onClick = {() => this.togLake()}> 
                    Toggle Underground Lake
                 </button>
             </div>
@@ -721,7 +720,7 @@ togLake(){
     render() {
       return (
         <div float = "left" display = "inline">
-          <button id = "bSix" onClick={this.showMenu} class = "Spec-button"  display = "none">
+          <button id = "bSix" onClick={this.showMenu} className = "Spec-button"  display = "none">
             Underwater
           </button>
           
@@ -814,7 +813,7 @@ class Card extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.showMenu} class = "dropbtn">
+        <button onClick={this.showMenu} className = "dropbtn">
           Select a Map Type
         </button>
         
@@ -827,13 +826,13 @@ class Card extends Component {
                   this.dropdownMenu = element;
                 }}
               >
-                <button class = "dropdown-content" onClick = {() => wmapSpecs()}>
+                <button className = "dropdown-content" onClick = {() => wmapSpecs()}>
                    World </button>
-                <button class = "dropdown-content" onClick = {() => this.eventL()}> 
+                <button className = "dropdown-content" onClick = {() => this.eventL()}> 
                   Large: 30 x 30 </button>
-                <button class = "dropdown-content" onClick = {() => this.eventM()}>
+                <button className = "dropdown-content" onClick = {() => this.eventM()}>
                   Medium: 20 x 20 </button>
-                <button class = "dropdown-content" onClick = {() => this.eventS()}>
+                <button className = "dropdown-content" onClick = {() => this.eventS()}>
                   Small: 10 x 10 </button>
               </div>
             )
@@ -903,19 +902,25 @@ function createMSquare(props){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "QSDSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else if(tempEl2 <= drCNum){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "DRDSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else
     var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.className = "DSquare";
-      props.appendChild(btn);
+      return(
+        btn
+      );
   }
   else if(biome === "For"){
     var treeChance = (5 * parts[6])
@@ -928,12 +933,16 @@ function createMSquare(props){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "TFSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
-      btn.setAttribute("classe", "FSquare");
-      props.appendChild(btn);
+      btn.setAttribute("class", "FSquare");
+      return(
+        btn
+      );
   }
   else if(biome === "Pla"){
     var brushChance = (5 * parts[6])
@@ -949,19 +958,25 @@ function createMSquare(props){
     var btn = document.createElement('INPUT');
     btn.setAttribute("type", "button");
     btn.setAttribute("class", "BPSquare");
-    props.appendChild(btn);
+    return(
+      btn
+    );
     }
     else if(tempEl5 <= prCNum){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "RPSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else
     var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "PSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
   }
   else if(biome === "Mou"){
     var mDropsChance = (5 * parts[6])
@@ -977,19 +992,25 @@ function createMSquare(props){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "MDSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else if(tempEl7 <= mrCNum){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
-      btn.setAttribute("className", "MRSquare");
-      props.appendChild(btn);
+      btn.setAttribute("class", "MRSquare");
+      return(
+        btn
+      );
     }
     else
     var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "MSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
   }
   else if(biome === "Gro"){
     var gDropsChance = (5 * parts[6])
@@ -1005,19 +1026,25 @@ function createMSquare(props){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "GDSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else if(tempEl9 <= grCNum){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "GRSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else
     var btn = document.createElement('INPUT');
     btn.setAttribute("type", "button");
     btn.setAttribute("class", "DSquare");
-      props.appendChild(btn);
+    return(
+      btn
+    );;
   }
   else if(biome === "Wat"){
     var coralChance = (5 * parts[6])
@@ -1033,19 +1060,26 @@ function createMSquare(props){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "CWSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else if(tempEl11 <= wrCNum){
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "WRSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
     }
     else
       var btn = document.createElement('INPUT');
       btn.setAttribute("type", "button");
       btn.setAttribute("class", "WSquare");
-      props.appendChild(btn);
+      return(
+        btn
+      );
+
   }
 }
 
@@ -1066,9 +1100,7 @@ function createMGrid(){
     for(j = 0; j < gridSize; j++){
 
     var cell = document.createElement("td");
-    createMSquare(cell);
-
-    row.appendChild(cell);
+    row.appendChild(createMSquare(cell));
 
   }
   tab.appendChild(row);
