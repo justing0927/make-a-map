@@ -197,8 +197,9 @@ class App extends Component { //view
       parts.push(document.getElementById("wrocks").value) //parts 7
      // parts.push(document.getElementById("wsize").value) //parts 8
 
-     tbl = createMGrid();
+      tbl = createMGrid();
       }
+      makeKey();
     }
 
     
@@ -250,6 +251,7 @@ class App extends Component { //view
       event.preventDefault();
       bi1();
       dBiome();
+      document.getElementById("keyTb").style.display = "block"
       
       this.setState({ showMenu: true }, () => {
         document.addEventListener('click', this.closeMenu);
@@ -339,6 +341,7 @@ class FBiome extends React.Component {
         event.preventDefault();
         bi2();
         fBiome();
+        document.getElementById("keyTb").style.display = "block"
         
         this.setState({ showMenu: true }, () => {
           document.addEventListener('click', this.closeMenu);
@@ -423,6 +426,7 @@ class FBiome extends React.Component {
       event.preventDefault();
       bi3();
       pBiome();
+      document.getElementById("keyTb").style.display = "block"
           
       this.setState({ showMenu: true }, () => {
         document.addEventListener('click', this.closeMenu);
@@ -511,6 +515,7 @@ class FBiome extends React.Component {
       event.preventDefault();
       bi4();
       mBiome();
+      document.getElementById("keyTb").style.display = "block"
 
       this.setState({ showMenu: true }, () => {
         document.addEventListener('click', this.closeMenu);
@@ -606,6 +611,7 @@ class FBiome extends React.Component {
       event.preventDefault();
       bi5();
       gBiome();
+      document.getElementById("keyTb").style.display = "block"
       
       this.setState({ showMenu: true }, () => {
         document.addEventListener('click', this.closeMenu);
@@ -646,6 +652,7 @@ class FBiome extends React.Component {
                 <input id = "gdrops" type="number" name="quantity" min="0" max="5" /> 
               </form> 
                 Frequency of Boulders (From 1-5):
+                <button class = "GRSquare" display> </button>
               <form> 
                 <input id = "grocks" type="number" name="quantity" min="0" max="5" /> 
                 </form> 
@@ -706,6 +713,7 @@ togLake(){
       event.preventDefault();
       bi6();
       wBiome();
+      document.getElementById("keyTb").style.display = "block"
       
       this.setState({ showMenu: true }, () => {
         document.addEventListener('click', this.closeMenu);
@@ -882,11 +890,27 @@ class Grid extends React.Component {
           Map:
           </div>
           <table id = "GridTable" className = "GridTabl">
-            </table>         
+            </table>
+          <div className = "Spec-title"  id = "keyTb">
+            Key:
+            <KeyTbl/>
+          </div>         
         </div>
     );
   }
+  displayKey(){
 
+  }
+
+}
+
+class KeyTbl extends React.Component {
+  render(){
+    return(
+        <div id = "tablePlace">
+          </div>
+    );
+  }
 }
 
 
@@ -1160,14 +1184,14 @@ function makePath(){
     rivStart = gridSize - 2;
   }
   
-  if(horizontalChance < 50) //vertical river
+  if(horizontalChance < 50) //vertical path
   
   for(i = 0; i < gridSize; i++){
     document.getElementById("GridTable").rows[i].cells[rivStart].children[0].style.background = "rgb(245, 230, 65)";
     document.getElementById("GridTable").rows[i].cells[rivStart + 1].children[0].style.background = "rgb(245, 230, 65)";
     }
   
-  else{ //horizontal river
+  else{ //horizontal path
     for(i = 0; i < gridSize; i++){
       document.getElementById("GridTable").rows[rivStart].cells[i].children[0].style.background = "rgb(245, 230, 65)";
       document.getElementById("GridTable").rows[rivStart + 1].cells[i].children[0].style.background = "rgb(245, 230, 65)";
@@ -1237,6 +1261,173 @@ function makeLake(){
   
 }
 
+function makeKey(){
+  if(biome === "Des"){
+    <div className = "Spec-title" display = "inline">
+      Key:
+      <table className = "GridTabl" id = "keyTbl">
+        <tr id = "tblRow">
+          Desert:
+          <td>
+            <input type = "button" class = "DSquare"> </input>
+          </td>
+          Quicksand:
+          <td>
+            <input type = "button" class = "QSDSquare"> </input>
+          </td>
+          Desert Rock:
+          <td>
+            <input type = "button" class = "DRDSquare"> </input>
+          </td>
+        </tr>
+      </table>
+    </div>  
+
+  }
+  else if(biome === "For"){
+
+    <div className = "Spec-title" display = "inline">
+      Key:
+      <table className = "GridTabl" id = "keyTbl">
+      <tr id = "tblRow">
+        Forest:
+          <td>
+            <input type = "button"  class = "Fquare"> </input>
+          </td>
+        Tree:
+          <td>
+            <input type = "button" class = "TFSquare"> </input>  
+          </td>
+        </tr>
+      </table>
+    </div>   
+
+  }
+  else if(biome === "Pla"){
+
+    <div className = "Spec-title" display = "inline">
+      Key:
+      <table className = "GridTabl" id = "keyTbl">
+        <tr id = "tblRow">
+          Plains:
+          <td>
+            <input type = "button" class = "Pquare"> </input>
+          </td>
+          Brush:
+          <td>
+            <input type = "button" class = "BPSquare"> </input>
+          </td>
+          Plains Rock:
+          <td>
+            <input type = "button" class = "RPSquare"> </input>
+          </td>
+        </tr>
+      </table>
+    </div> 
+
+  }
+  else if(biome === "Mou"){
+
+    <div className = "Spec-title" display = "inline">
+      Key:
+      <table className = "GridTabl" id = "keyTbl">
+        <tr id = "tblRow">
+          <td>
+          Mountain:
+            <input type = "button" class = "MSquare"> </input>
+          </td>  
+          Drop-off:
+          <td>
+            <input type = "button" class = "MDSquare"> </input>
+          </td>
+          Mountain Boulder:
+          <td>
+            <input type = "button" class = "MRSquare"> </input>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  }
+  else if(biome === "Gro"){
+
+    <div className = "Spec-title" display = "inline">
+      Key:
+      <table className = "GridTabl" id = "keyTbl">
+        <tr id = "tblRow">
+          Underground:
+          <td>
+            <input type = "button" class = "GSquare"> </input>
+          </td>
+          Drop-off:
+          <td>
+            <input type = "button" class = "GDSquare"> </input>
+          </td>
+          Underground Boulder:
+          <td>
+            <input  type = "button" class = "GRSquare"> </input>
+          </td>
+        </tr>
+      </table>
+    </div>    
+
+  }
+  else if(biome === "Wat"){
+
+    <div className = "Spec-title" display = "inline">
+      Key:
+      <table className = "GridTabl" id = "keyTbl">
+        <tr id = "tblRow">
+          Desert:
+          <td>
+            <input type = "button" class = "Wquare"> </input>
+          </td>
+          Coral:
+          <td>
+            <input type = "button" class = "CWSquare"> </input>
+          </td>
+          Desert Rock:
+          <td>
+            <input type = "button" class = "WRSquare"> </input>
+          </td>
+        </tr>
+      </table>
+    </div>   
+
+  }
+  if(path === true){
+    var tbl = document.getElementById("keyTbl");
+    var row = document.getElementById("tblRow");
+    var cell = document.createElement("td");
+    var btn = document.createElement("INPUT");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("class", "WSquare");
+    btn.setAttribute("background", "rgb(245, 230, 65)")
+
+    cell.appendChild(btn)
+    row.appendChild(cell)
+    tbl.appendChild(row)
+  }
+  if(river === true){
+    var tbl = document.getElementById("keyTbl");
+    var row = document.getElementById("tblRow");
+    var cell = document.createElement("td");
+    var btn = document.createElement("INPUT");
+    btn.setAttribute("type", "button");
+    btn.setAttribute("class", "WSquare");
+
+    cell.appendChild(btn)
+    row.appendChild(cell)
+    tbl.appendChild(row)
+  }
+  
+  var x = document.getElementById("tablePlace");
+  var y = document.getElementById("keyTbl")
+  x.appendChild(y);
+  return(
+    x
+  );
+}
 
 function createWGrid(){
   //TODO
@@ -1423,6 +1614,7 @@ function resetOptions(){
   document.getElementById("bOne").style.display = "inline"
 
   document.getElementById("genButton2").style.display = "none"
+  document.getElementById("keyTb").style.display = "none";
 }
 
 function mapSpecs() {
