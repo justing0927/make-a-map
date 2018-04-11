@@ -1,3 +1,18 @@
+
+## Make A Map
+
+This project generates a D&D style "battlemap." Select a map type from three sizes, a biome for the map, and relevant
+obstacles and land features. 
+
+The "frequency" values must be filled out, and represent a percentage chance of an obstacle being generated. 0 corresponding
+to a 0% chance, and 5 to a 25% chance.
+Land element buttons cannot be untoggled once toggled.
+
+When creating multiple maps, refresh the page between each one to avoid overlap between the maps.
+
+See [Available Scripts] to determine how to build and run the project.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
